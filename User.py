@@ -39,6 +39,7 @@ class User:
         self._Email = Email
         self._Drivers_liscence = Drivers_liscence
         self._User_posts = []
+
 #class mathods
     @classmethod
     def see_all_posts(cls):
@@ -70,7 +71,7 @@ class User:
 
     @property
     def User_posts(self):
-        return self.User_posts
+        return self._User_posts
     @User_posts.setter
     def User_posts(self, post):
         self._User_posts.append(post)
@@ -80,7 +81,26 @@ class User:
         return f"{self.Name}, ID Number {self.Drivers_liscence} can be reached by email at {self.Email}."
 
 #instance methods
+    def create_a_post(self):
+        id=len(self.posts)+1
+        user_title = input("Please enter the title of your post:\n")
+        user_body = input("Please enter the content of your post:\n")
+        self.posts.append({"id":id,"title":user_title,"content":user_body})
+        self.User_posts.append({"id":id,"title":user_title,"content":user_body})
+    
+    def delete_a_post(self):
+        id=input()
+        for i in range(len(self.User_posts)):
+            print(self.User_posts[i])
+        
+    
+    def see_my_posts(self):
+        for post in self.User_posts:
+            print(f"Title: {post['title']}\nContent: \n{post['content']}")
 
 user = User("Max","email","47832HD2")
 print(user)
-User.see_all_posts()
+user.create_a_post()
+user.see_all_posts()
+
+user.delete_a_post()
