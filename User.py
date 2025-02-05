@@ -35,13 +35,46 @@ class User:
         User_posts - list - List of posts the user has made
     """
     def __init__(self,Name,Email,Drivers_liscence):
-        pass
+        self._Name = Name
+        self._Email = Email
+        self._Drivers_liscence = Drivers_liscence
+        self._User_posts = []
 #class mathods
-# GETTERS AND SETTERS
 
-#dunders
-    def __str__(self):
-        pass
+# GETTERS AND SETTERS
+    @property
+    def Name(self):
+        return self._Name
+    @Name.setter
+    def Name(self, name):
+        self._Name = name
+
+    @property
+    def Email(self):
+        return self._Email
+    @Email.setter
+    def Email(self, email):
+        self._Email = email
+
+    @property
+    def Drivers_liscence(self):
+        return self._Drivers_liscence
+    @Drivers_liscence.setter
+    def Drivers_liscence(self, dl):
+        self._Drivers_liscence = dl
+
+    @property
+    def User_posts(self):
+        return self.User_posts
+    @User_posts.setter
+    def User_posts(self, post):
+        self._User_posts.append(post)
+
+# #dunders
+#     def __str__(self):
+#         pass
 
 #instance methods
+
+user = User("Max","email","47832HD2")
 
