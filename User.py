@@ -25,7 +25,7 @@ user posts - list of dictionaries
 # your improved User class goes here
 class User:
     # List of all posts
-    posts = []
+    posts = [{'title': 'title', 'content':'content'}]
 
     """
     Attributes:
@@ -40,6 +40,11 @@ class User:
         self._Drivers_liscence = Drivers_liscence
         self._User_posts = []
 #class mathods
+    @classmethod
+    def see_all_posts(cls):
+        for post in cls.posts:
+            print(f"Title: {post['title']}\nContent: \n{post['content']}")
+
 
 # GETTERS AND SETTERS
     @property
@@ -70,11 +75,12 @@ class User:
     def User_posts(self, post):
         self._User_posts.append(post)
 
-# #dunders
-#     def __str__(self):
-#         pass
+#dunders
+    def __str__(self):
+        return f"{self.Name}, ID Number {self.Drivers_liscence} can be reached by email at {self.Email}."
 
 #instance methods
 
 user = User("Max","email","47832HD2")
-
+print(user)
+User.see_all_posts()
