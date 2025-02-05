@@ -25,7 +25,7 @@ user posts - list of dictionaries
 # your improved User class goes here
 class User:
     # List of all posts
-    posts = [{'title': 'title', 'content':'content'}]
+    posts = []
 
     """
     Attributes:
@@ -53,22 +53,31 @@ class User:
         return self._Name
     @Name.setter
     def Name(self, name):
-        self._Name = name
+        if isinstance(name, str):
+            self._Name = name
+        else:
+            print("Name must be a string.")
 
     @property
     def Email(self):
         return self._Email
     @Email.setter
     def Email(self, email):
-        self._Email = email
+        if isinstance(email, str):
+            self._Email = email
+        else:
+            print("Email must be a string.")
 
     @property
     def Drivers_liscence(self):
         return self._Drivers_liscence
     @Drivers_liscence.setter
     def Drivers_liscence(self, dl):
-        self._Drivers_liscence = dl
-
+        if isinstance(dl, str):
+            self._Drivers_liscence = dl
+        else:
+            print("Drivers liscence must be a string.")
+            
     @property
     def User_posts(self):
         return self._User_posts
@@ -89,18 +98,14 @@ class User:
         self.User_posts.append({"id":id,"title":user_title,"content":user_body})
     
     def delete_a_post(self):
-        id=input()
+        id=input("Please enter the ID of the post you would like to delete:\n")
         for i in range(len(self.User_posts)):
-            print(self.User_posts[i])
-        
+            if self.User_posts[i]['id'] == id:
+                self.User_posts.pop(i)
+        for i in range(len(self.posts)):
+            if self.posts[i]['id'] == id:
+                self.posts.pop(i)
     
     def see_my_posts(self):
         for post in self.User_posts:
             print(f"Title: {post['title']}\nContent: \n{post['content']}")
-
-user = User("Max","email","47832HD2")
-print(user)
-user.create_a_post()
-user.see_all_posts()
-
-user.delete_a_post()

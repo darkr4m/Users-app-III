@@ -28,8 +28,8 @@ def test_delete_post(monkeypatch, capsys):
   out, err = capsys.readouterr()
   assert out == ""
 
-user2 = User(**{"name":"Mike", "email":"mike@email.com", "drivers_liscence":"FDUI87"})
-user3 = User(**{"name":"Zack", "email":"zack@email.com", "drivers_liscence":"FDUI87"})       
+user2 = User(**{"Name":"Mike", "Email":"mike@email.com", "Drivers_liscence":"FDUI87"})
+user3 = User(**{"Name":"Zack", "Email":"zack@email.com", "Drivers_liscence":"FDUI87"})       
   
 def test_see_all_posts(monkeypatch, capsys):
   assert len(user.posts) == 0
