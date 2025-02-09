@@ -1,30 +1,11 @@
-# App Users II
+# App Users III
+Your `User` class should have several attributes and methods at this point.  That's great as a general purpose representation of a user.  However, as time has passed, your application's requirements have changed.  You want to start making money off your app's popularity, so you've created a two-tiered system: premium users and free users.
 
-Wow!  Literally overnight, your \<INSERT APPLICATION NAME\> app has really taken off!  You decide to add a new feature to your app: posts.
-
-In order to gain this new functionality, you'll have to modify your original `User` class.
+Feel free to either start from scratch or use your (or someone else's) `User` class from the previous User's assignment.
 
 ## Requirements
-1. Add a method to your `User` class that allows for creating a new user post.
-2. Add any necessary instance properties to make step 1 work.  What data structure should you use?
-3. Add a static variable that stores the posts from every user.  What data structure should you use?
-4. Make sure that the the information stays in sync!
-
-## Bonus
-Add a method that allows for deleting a post.  Again, make sure that your information stays in sync.
-
-This exercise contains a pytest test suite to help you exercise your Test Driven Development skills. To run the test suite, please follow these steps:
-
-- Install pytest
-
-  ```bash
-    # terminal command
-    pip install pytest
-  ```
-
-- Run the test suite
-
-  ```bash
-    # terminal command
-    pytest test_User.py
-  ```
+1. Your `User` class will now become a base class.
+2. Create two subclasses `PremiumUser` and `FreeUser` that will inherit from `User`.
+3. Override the `add_post` method for `FreeUser` so that an instance of `FreeUser` is only able to make two posts.
+4. In the `runner.py` file, import `FreeUser` and `PremiumUser` and create at least one instance of each.
+5. Add tests.
