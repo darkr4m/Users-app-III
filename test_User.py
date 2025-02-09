@@ -1,5 +1,5 @@
 import pytest
-from User import User
+from users.User import User
 
 user = User("John", "john@email.com", "FDUI87")
 
@@ -7,7 +7,6 @@ def test_init_user():
   assert user.Name == "John"
   assert user.Email == "john@email.com"
   assert user.Drivers_liscence == "FDUI87"
-  
 def test_create_post(monkeypatch, capsys):
   input = iter(["Johns †i†le", "I Just joined OOPX"])
   monkeypatch.setattr("builtins.input", lambda _x: next(input))
